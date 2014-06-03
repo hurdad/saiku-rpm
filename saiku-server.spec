@@ -27,7 +27,7 @@ Modular open-source analysis suite offering lightweight OLAP which remains easil
 
 %pre
 if ! /usr/bin/id saiku-server &>/dev/null; then
-    /usr/sbin/useradd -r -s /bin/sh -c "saiku-server" saiku-server || \
+    /usr/sbin/useradd -r -d %{_datadir}/saiku-server -s /bin/sh -c "saiku-server" saiku-server || \
         %logmsg "Unexpected error adding user \"saiku-server\". Aborting installation."
 fi
 
@@ -46,4 +46,6 @@ fi
 %{_sysconfdir}
 
 %changelog
+* Tue Jun 3 2014 Alexander Hurd <hurdad@gmail.com> 1.0.1-1
+- Initial specfile writeup.
 
